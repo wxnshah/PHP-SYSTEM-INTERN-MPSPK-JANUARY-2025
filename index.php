@@ -21,11 +21,13 @@ if (!empty($_SESSION)){
 								<div class="card bg-primary text-white mb-4">
 									<div class="card-body">Jumlah Pengguna
 										<h4 class="mt-3">
-											<?php echo dbcount('id_users','tb_users', '', $conn); ?>
+											<?php 
+												echo dbcount('id_users','tb_users', '', $conn); 
+											?>
 										</h4>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
-										<a class="small text-white stretched-link" href="#">View Details</a>
+										<a class="small text-white stretched-link" href="senarai_pengguna.php">View Details</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
 										</div>
@@ -37,11 +39,13 @@ if (!empty($_SESSION)){
 									<div class="card-body">
 										Jumlah Maklumat Pelajar
 										<h4 class="mt-3">
-											<?php echo dbcount('id_maklumat','tb_maklumat', '', $conn); ?>
+											<?php 
+												echo dbcount('id_maklumat','tb_maklumat', '', $conn); 
+											?>
 										</h4>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
-										<a class="small text-white stretched-link" href="#">View Details</a>
+										<a class="small text-white stretched-link" href="senarai_maklumat_pelajar.php">View Details</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
 										</div>
@@ -54,13 +58,13 @@ if (!empty($_SESSION)){
 										Jumlah Dalam Latihan
 										<p class="mt-3">
 											<?php 
-												$today = date("Y-m-d"); // This returns today's date in YYYY-MM-DD format
+												$today = date("Y-m-d");
 												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_mula, '%d/%m/%Y') <= CURDATE() AND STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') >= CURDATE()", $conn);
 											?>
 										</p>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
-										<a class="small text-white stretched-link" href="#">View Details</a>
+										<a class="small text-white stretched-link" href="senarai_maklumat_pelajar.php">View Details</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
 										</div>
@@ -73,13 +77,13 @@ if (!empty($_SESSION)){
 										Jumlah Tamat Latihan
 										<p class="mt-3">
 											<?php
-												$today = date("Y-m-d"); // This returns today's date in YYYY-MM-DD format
+												$today = date("Y-m-d");
 												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') < CURDATE()", $conn);
 											?>
 										</p>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
-										<a class="small text-white stretched-link" href="#">View Details</a>
+										<a class="small text-white stretched-link" href="senarai_maklumat_pelajar.php">View Details</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
 										</div>

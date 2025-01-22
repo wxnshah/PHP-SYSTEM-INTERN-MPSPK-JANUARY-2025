@@ -128,7 +128,7 @@ include('sweetalerts2.php');
                                                         <p>".$data['no_telefon']."</p>
                                                     </td>
                                                     <td>
-                                                        <p>".$data['id_ipta']."</p>
+                                                        <p>".getDataFromTable('name_ipta',$data['id_ipta'],'id_ipta','lt_ipta')."</p>
                                                     </td>
                                                     <td>
                                                         <p>".$data['no_matrik']."</p>

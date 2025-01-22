@@ -51,8 +51,13 @@ if (!empty($_SESSION)){
 							<div class="col-xl-3 col-md-6">
 								<div class="card bg-success text-white mb-4">
 									<div class="card-body">
-										Jumlah Tamat Latihan
-										<p class="mt-3">0</p>
+										Jumlah Dalam Latihan
+										<p class="mt-3">
+											<?php 
+												$today = date("Y-m-d"); // This returns today's date in YYYY-MM-DD format
+												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_mula, '%d/%m/%Y') <= CURDATE() AND STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') >= CURDATE()", $conn);
+											?>
+										</p>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
 										<a class="small text-white stretched-link" href="#">View Details</a>
@@ -65,8 +70,13 @@ if (!empty($_SESSION)){
 							<div class="col-xl-3 col-md-6">
 								<div class="card bg-danger text-white mb-4">
 									<div class="card-body">
-										Jumlah Dalam Latihan
-										<p class="mt-3">0</p>
+										Jumlah Tamat Latihan
+										<p class="mt-3">
+											<?php
+												$today = date("Y-m-d"); // This returns today's date in YYYY-MM-DD format
+												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') < CURDATE()", $conn);
+											?>
+										</p>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
 										<a class="small text-white stretched-link" href="#">View Details</a>
@@ -177,7 +187,7 @@ if (!empty($_SESSION)){
                                                         <p>".$data['no_telefon']."</p>
                                                     </td>
                                                     <td>
-                                                        <p>".$data['id_ipta']."</p>
+                                                        <p>".getDataFromTable('name_ipta',$data['id_ipta'],'id_ipta','lt_ipta')."</p>
                                                     </td>
                                                     <td>
                                                         <p>".$data['no_matrik']."</p>

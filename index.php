@@ -56,12 +56,12 @@ if (!empty($_SESSION)){
 								<div class="card bg-success text-white mb-4">
 									<div class="card-body">
 										Jumlah Dalam Latihan
-										<p class="mt-3">
+										<h4 class="mt-3">
 											<?php 
 												$today = date("Y-m-d");
 												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_mula, '%d/%m/%Y') <= CURDATE() AND STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') >= CURDATE()", $conn);
 											?>
-										</p>
+										</h4>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
 										<a class="small text-white stretched-link" href="senarai_maklumat_pelajar.php">View Details</a>
@@ -75,12 +75,12 @@ if (!empty($_SESSION)){
 								<div class="card bg-danger text-white mb-4">
 									<div class="card-body">
 										Jumlah Tamat Latihan
-										<p class="mt-3">
+										<h4 class="mt-3">
 											<?php
 												$today = date("Y-m-d");
 												echo dbcount('id_maklumat', 'tb_maklumat', "STR_TO_DATE(tarikh_tamat, '%d/%m/%Y') < CURDATE()", $conn);
 											?>
-										</p>
+										</h4>
 									</div>
 									<div class="card-footer d-flex align-items-center justify-content-between">
 										<a class="small text-white stretched-link" href="senarai_maklumat_pelajar.php">View Details</a>
